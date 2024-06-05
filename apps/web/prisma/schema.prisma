@@ -65,6 +65,7 @@ model Session {
 }
 
 model VerificationToken {
+  id   String  @id @default(cuid())
   identifier String
   token      String   @unique
   expires    DateTime
@@ -123,6 +124,7 @@ model Project {
 }
 
 model ProjectInvite {
+  id   String  @id @default(cuid())
   email     String
   expires   DateTime
   project   Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
